@@ -12,7 +12,7 @@ class StudentControler extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function welcome()
     {
         $students = Student::all();
         return view('welcome', compact('students'));

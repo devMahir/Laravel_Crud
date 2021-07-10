@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StudentControler;
+use App\Http\Controllers\HomeControler;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,7 +16,7 @@ use App\Http\Controllers\StudentControler;
 */
 
 
-Route::get('/', [StudentControler::class, 'index'])->name('home');
+Route::get('/', [StudentControler::class, 'welcome'])->name('welcome');
 
 Route::get('create', [StudentControler::class, 'create'])->name('create');
 
@@ -26,3 +27,7 @@ Route::get('edit/{id}', [StudentControler::class, 'edit'])->name('edit');
 Route::post('update/{id}', [StudentControler::class, 'update'])->name('update');
 
 Route::delete('delete/{id}', [StudentControler::class, 'delete'])->name('delete');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
